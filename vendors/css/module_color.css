@@ -1,0 +1,5 @@
+/* linked in every BEdita's page. It has to contain only the module color */
+
+@CHARSET "UTF-8";
+
+.wikidocs {background-color: #888 !important;}
