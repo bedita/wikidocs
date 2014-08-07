@@ -3,9 +3,9 @@
 <div class="secondacolonna {if !empty($fixed)}fixed{/if}">
 	
 	{if !empty($method) && $method != "index"}
-		{assign var="back" value=$session->read("backFromView")}
+		{$back=$session->read("backFromView")}
 	{else}
-		{assign_concat var="back" 0=$html->url('/') 1=$currentModule.url}
+		{$back=$html->url('/')|cat:$currentModule.url}
 	{/if}
 
 	<div class="modules">

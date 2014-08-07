@@ -1,9 +1,5 @@
-{*
-** default view template
-*}
-{$html->css("ui.datepicker", null, null, false)}
+{$html->css("ui.datepicker", null, [inline => "false"])}
 {$javascript->link("jquery/jquery.form", false)}
-{$javascript->link("jquery/treeview/jquery.treeview", false)}
 {$javascript->link("jquery/jquery.selectboxes.pack", false)}
 {$javascript->link("jquery/ui/jquery.ui.sortable", true)}
 {$javascript->link("jquery/ui/jquery.ui.datepicker", false)}
@@ -11,20 +7,19 @@
 {$javascript->link("jquery/ui/i18n/ui.datepicker-$currLang.js", false)}
 {/if}
 
-{literal}
+
 <script type="text/javascript">
     $(document).ready(function(){	
 		openAtStart("#title,#long_desc_langs_container");
     });
 </script>
-{/literal}
+
 
 {$view->element("form_common_js")}
 
 {$view->element("modulesmenu")}
 
-{assign_associative var="params" method="view"}
-{$view->element("menuleft", $params)}
+{$view->element("menuleft", [method => "view"])}
 
 <div class="head">
 	
@@ -32,10 +27,9 @@
 
 </div>
 
-{assign var=objIndex value=0}
+{$objIndex=0}
 
-{assign_associative var="params" method="view" fixed = true}
-{$view->element("menucommands", $params)}
+{$view->element("menucommands", [method => "view", fixed => true])}
 
 <div class="main">	
 	

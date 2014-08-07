@@ -3,7 +3,7 @@
  * 
  * BEdita - a semantic content management framework
  * 
- * Copyright 2010 ChannelWeb Srl, Chialab Srl
+ * Copyright 2013 ChannelWeb Srl, Chialab Srl
  * 
  * This file is part of BEdita: you can redistribute it and/or modify
  * it under the terms of the Affero GNU General Public License as published 
@@ -20,68 +20,63 @@
  */
 
 /**
- * Sample Module Controller
+ * WikiDocs Controller
  * 
- *
- * @version			$Revision: 2590 $
- * @modifiedby 		$LastChangedBy: bato $
- * @lastmodified	$LastChangedDate: 2010-02-09 14:51:28 +0100 (Tue, 09 Feb 2010) $
- * 
- * $Id: sample_module_controller.php 2590 2010-02-09 13:51:28Z bato $
  */
 class WikidocsController extends ModulesController {
-	
-	public $uses = array("Document");
-	var $helpers 	= array('BeTree', 'BeToolbar');
-	
+
+	public $uses = array("KnowledgeBase");
+	public $helpers = array('BeTree', 'BeToolbar');
+
 	protected $moduleName = 'wikidocs';
-	
+
 	public function index($id = null, $order = "", $dir = true, $page = 1, $dim = 20) {
-		$conf  = Configure::getInstance() ;
-		$filter["object_type_id"] = $this->getModuleObjectTypes('Documents');
-		$filter["count_annotation"] = array("Comment","EditorNote");
+	    $objTypeId = Configure::read("objectTypes.knowledge_base.id");
+    	$filter["object_type_id"] = array($objTypeId);
+        $filter["user_created"] = "";
+    	$filter["count_annotation"] = array("Comment","EditorNote");
 		$this->paginatedList($id, $filter, $order, $dir, $page, $dim);
 	}
-	
+
 	public function view($id = null) {
-		$this->viewObject($this->Document, $id);
-		$this->set("objectTypeId", Configure::read("objectTypes.document.id"));
+		$this->viewObject($this->KnowledgeBase, $id);
+		$this->set("objectTypeId", Configure::read("objectTypes.knowledge_base.id"));
 	}
 	
 	public function save() {
 		$this->checkWriteModulePermission();
 		$this->Transaction->begin();
-		$this->saveObject($this->Document);
+		$this->saveObject($this->KnowledgeBase);
 	 	$this->Transaction->commit() ;
  		$this->userInfoMessage(__("Skeleton object saved", true)." - ".$this->data["title"]);
-		$this->eventInfo("skeleton_object [". $this->data["title"]."] saved");
+		$this->eventInfo("knowledge_base [". $this->data["title"]."] saved");
 	}
 	
 	public function delete() {
 		$this->checkWriteModulePermission();
-		$objectsListDeleted = $this->deleteObjects("Document");
-		$this->userInfoMessage(__("Sample object deleted", true) . " -  " . $objectsListDeleted);
-		$this->eventInfo("Document $objectsListDeleted deleted");
+		$objectsListDeleted = $this->deleteObjects("KnowledgeBase");
+		$this->userInfoMessage(__("KnowledgeBase object deleted", true) . " -  " . $objectsListDeleted);
+		$this->eventInfo("KnowledgeBase $objectsListDeleted deleted");
 	}
-	
+
 	public function deleteSelected() {
 		$this->checkWriteModulePermission();
-		$objectsListDeleted = $this->deleteObjects("Document");
-		$this->userInfoMessage(__("Sample object", true) . " -  " . $objectsListDeleted);
-		$this->eventInfo("Document $objectsListDeleted deleted");
+		$objectsListDeleted = $this->deleteObjects("KnowledgeBase");
+		$this->userInfoMessage(__("KnowledgeBase object", true) . " -  " . $objectsListDeleted);
+		$this->eventInfo("KnowledgeBase $objectsListDeleted deleted");
 	}
-	
+
 	protected function forward($action, $esito) {
 		$REDIRECT = array(
 			"cloneObject"	=> 	array(
-							"OK"	=> "/".$this->moduleName."/view/".@$this->Document->id,
-							"ERROR"	=> "/".$this->moduleName."/view/".@$this->Document->id 
+							"OK"	=> "/".$this->moduleName."/view/".@$this->KnowledgeBase->id,
+							"ERROR"	=> "/".$this->moduleName."/view/".@$this->KnowledgeBase->id 
 							),
 			"view"	=> 	array(
 							"ERROR"	=> "/".$this->moduleName 
 							), 
 			"save"	=> 	array(
-							"OK"	=> "/".$this->moduleName."/view/".@$this->Document->id,
+							"OK"	=> "/".$this->moduleName."/view/".@$this->KnowledgeBase->id,
 							"ERROR"	=> $this->referer()
 							),
 			"delete" =>	array(

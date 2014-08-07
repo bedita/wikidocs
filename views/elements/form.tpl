@@ -1,7 +1,7 @@
 {*
 ** general form for content object type (i.e. document, short_news, ...)
 *}
-{assign_concat var="formUrl" 0="/" 1=$currentModule.url 2="/save"}
+{$formUrl = "/"|cat:$currentModule.url|cat:"/save"}
 <form action="{$html->url($formUrl)}" method="post" name="updateForm" id="updateForm" class="cmxform">
 <input type="hidden" name="data[id]" value="{$object.id|default:''}"/>
 
@@ -9,8 +9,6 @@
 
 	{assign_associative var="params" comments=true}
 	{$view->element("form_properties", $params)}
-	
-	{$view->element("form_tree")}
 	
 	{$view->element('form_textbody')}
 	

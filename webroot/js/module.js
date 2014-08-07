@@ -10,7 +10,7 @@ $(document).ready(function(){
 			currentid = firstId;
 		}
 		// TODO: far funzionare con: baseUrl + "/documents/view/"+currentid;
-		window.location.href = BEIDTA.baase + "/view/"+currentid;
+		window.location.href = "/documents/view/"+currentid;
 		
 	});
 	
