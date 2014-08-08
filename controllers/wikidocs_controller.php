@@ -39,8 +39,7 @@ class WikidocsController extends ModulesController {
 
     public function view($id = null) {
         $this->viewObject($this->WikiDoc, $id);
-        $this->set('objectTypeId', Configure::read('objectTypes.wiki_doc_base.id'));
-    }
+     }
 	
     public function save() {
         $this->checkWriteModulePermission();
@@ -65,41 +64,16 @@ class WikidocsController extends ModulesController {
         $this->eventInfo("WikiDoc $objectsListDeleted deleted");
     }
 
-	protected function forward($action, $result) {
-		$redirect = array(
-			'cloneObject'	=> 	array(
-							'OK'	=> '/'.$this->moduleName.'/view/'.@$this->WikiDoc->id,
-							'ERROR'	=> '/'.$this->moduleName.'/view/'.@$this->WikiDoc->id 
-							),
-			'view'	=> 	array(
-							'ERROR'	=> '/'.$this->moduleName 
-							), 
-			'save'	=> 	array(
-							'OK'	=> '/'.$this->moduleName.'/view/'.@$this->WikiDoc->id,
-							'ERROR'	=> $this->referer()
-							),
-			'delete' =>	array(
-							'OK'	=> $this->fullBaseUrl . $this->Session->read('backFromView'),
-							'ERROR'	=> $this->referer()
-							),
-			'deleteSelected' =>	array(
-							'OK'	=> $this->referer(),
-							'ERROR'	=> $this->referer() 
-							),
-			'addItemsToAreaSection'	=> 	array(
-							'OK'	=> $this->referer(),
-							'ERROR'	=> $this->referer() 
-							),
-			'changeStatusObjects'	=> 	array(
-							'OK'	=> $this->referer(),
-							'ERROR'	=> $this->referer() 
-							)
-		);
-		if (isset($redirect[$action][$result])) {
-		    return $redirect[$action][$result] ;
-		}
-		return false ;
-	}
-	
+    protected function forward($action, $result) {
+        $redirect = array(
+            // EDIT to create custom forward rules
+//            'save' => array(
+//                'OK' => '/'.$this->moduleName.'/view/'.@$this->WikiDoc->id,
+//                'ERROR' => $this->referer()
+//            ),
+        );
+        return $this->moduleForward($action, $result, $redirect);
+    }
+
 }
-?>
+

@@ -28,4 +28,4 @@ class WikiDoc extends BeditaObjectModel {
 
     public $actsAs = array();
 }
-?>
+

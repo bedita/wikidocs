@@ -9,7 +9,7 @@
 
 	{$view->element('form_properties')}
 
-    {$view->element('form_assoc_objects', ['object_type_id' => $objectTypeId])}
+    {$view->element('form_assoc_objects', ['object_type_id' => $conf->objectTypes.wiki_doc.id])}
 	
 	{$view->element('form_tags')}
 	
