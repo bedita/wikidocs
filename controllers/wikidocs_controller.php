@@ -65,7 +65,7 @@ class WikidocsController extends ModulesController {
 		$this->eventInfo("WikiDoc $objectsListDeleted deleted");
 	}
 
-	protected function forward($action, $esito) {
+	protected function forward($action, $result) {
 		$REDIRECT = array(
 			"cloneObject"	=> 	array(
 							"OK"	=> "/".$this->moduleName."/view/".@$this->WikiDoc->id,
@@ -95,7 +95,9 @@ class WikidocsController extends ModulesController {
 							"ERROR"	=> $this->referer() 
 							)
 		);
-		if(isset($REDIRECT[$action][$esito])) return $REDIRECT[$action][$esito] ;
+		if (isset($REDIRECT[$action][$result])) {
+		    return $REDIRECT[$action][$result] ;
+		}
 		return false ;
 	}
 	
