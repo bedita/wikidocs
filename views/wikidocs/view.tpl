@@ -1,21 +1,17 @@
-{$html->css("ui.datepicker", null, [inline => "false"])}
-{$javascript->link("jquery/jquery.form", false)}
-{$javascript->link("jquery/jquery.selectboxes.pack", false)}
-{$javascript->link("jquery/ui/jquery.ui.sortable", true)}
-{$javascript->link("jquery/ui/jquery.ui.datepicker", false)}
+{$html->css('ui.datepicker', null, [inline => 'false'])}
+
+{$html->script('libs/jquery/jquery-migrate-1.2.1', false)} 
+{$html->script('libs/jquery/plugins/jquery.form', false)}
+{$html->script('libs/jquery/ui/jquery.ui.sortable.min', true)}
+{$html->script('libs/jquery/ui/jquery.ui.datepicker.min', false)}
 {if $currLang != "eng"}
-{$javascript->link("jquery/ui/i18n/ui.datepicker-$currLang.js", false)}
+    {$html->script("libs/jquery/ui/i18n/jquery.ui.datepicker-$currLang2.min.js", false)}
 {/if}
 
+{$html->script('libs/epiceditor/epiceditor.min.js', false)}
+{$html->script('/wikidocs/js/view_init.js', false)}
 
-<script type="text/javascript">
-    $(document).ready(function(){	
-		openAtStart("#title,#long_desc_langs_container");
-    });
-</script>
-
-
-{$view->element("form_common_js")}
+{$view->element('form_common_js')}
 
 {$view->element("modulesmenu")}
 
