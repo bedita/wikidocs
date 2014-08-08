@@ -9,13 +9,13 @@
 {/if}
 
 {$html->script('libs/epiceditor/epiceditor.min.js', false)}
-{$html->script('/wikidocs/js/view_init.js', false)}
+{$html->script('libs/epiceditor/epiceditor.init.js', false)}
 
 {$view->element('form_common_js')}
 
-{$view->element("modulesmenu")}
+{$view->element('modulesmenu')}
 
-{$view->element("menuleft", [method => "view"])}
+{$view->element('menuleft', [method => 'view'])}
 
 <div class="head">
 	

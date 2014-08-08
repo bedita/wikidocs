@@ -10,8 +10,8 @@
 	<br />
 	<label>{t}description{/t}:</label>
 	<br />
-    <textarea id="wikitextarea" style="display:none;" name="data[description]">{$object.description|default:''|escape:'html'}</textarea>
-    <div id="epiceditor" style="height: 400px;">
+    <textarea id="md-textarea" style="display:none;" name="data[description]">{$object.description|default:''|escape:'html'}</textarea>
+    <div id="md-editor" style="height: 400px;">
     </div>
 	<br />
 	<input type="text" id="nicknameBEObject" name="data[nickname]" style="font-style:italic; width:100%" value="{$object.nickname|escape:'html'|escape:'quotes'}"/>
