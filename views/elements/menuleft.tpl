@@ -1,5 +1,4 @@
 
-{$view->set("method", $method)}
 <div class="primacolonna">
 
 	<div class="modules"><label class="bedita" rel="{$html->url('/')}">{$conf->projectName|default:$conf->userVersion}</label></div>
@@ -12,20 +11,20 @@
 		{/if}
 	</ul>
 
-{$view->element("export")}
+{$view->element('export')}
 
-{if (!empty($method)) && $method eq "index"}
+{if (!empty($method)) && $method eq 'index'}
 
 		<div class="insidecol publishingtree">
 			
-			{$view->element("tree")}
+			{$view->element('tree')}
 		
 		</div>
 
 {/if}
 
-{$view->element("previews")}
+{$view->element('previews')}
 
-{$view->element("user_module_perms")}
+{$view->element('user_module_perms')}
 
 </div>

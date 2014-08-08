@@ -10,7 +10,7 @@
 	<br />
 	<label>{t}description{/t}:</label>
 	<br />
-    <textarea id="md-textarea" style="display:none;" name="data[description]">{$object.description|default:''|escape:'html'}</textarea>
+    <textarea id="md-textarea" style="display:none;" name="data[description]">{$object.description|default:''}</textarea>
     <div id="md-editor" style="height: 400px;">
     </div>
 	<br />
