@@ -6,7 +6,7 @@ Wiki docs BEdita module using markdown syntax
 Setup
 =====
 
-Clone wikidocs module or copy downloaded zip into  modules path, the __modules__ folder inside BEdita root folder 
+Clone wikidocs module (or copy downloaded zip) into the __modules__ folder inside BEdita root folder 
 (like */var/www/bedita/modules*), so:
 
 ```
