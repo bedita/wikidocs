@@ -11,7 +11,7 @@ Clone wikidocs module (or copy downloaded zip) into the __modules__ folder insid
 
 ```
       cd /var/www/bedita/modules
-      git clone http://github.com/bedita/wikidocs.git
+      git clone https://github.com/bedita/wikidocs.git
 ```
 
 
