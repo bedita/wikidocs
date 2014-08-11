@@ -64,16 +64,5 @@ class WikidocsController extends ModulesController {
         $this->eventInfo("WikiDoc $objectsListDeleted deleted");
     }
 
-    protected function forward($action, $result) {
-        $redirect = array(
-            // EDIT to create custom forward rules
-//            'save' => array(
-//                'OK' => '/'.$this->moduleName.'/view/'.@$this->WikiDoc->id,
-//                'ERROR' => $this->referer()
-//            ),
-        );
-        return $this->moduleForward($action, $result, $redirect);
-    }
-
 }
 
