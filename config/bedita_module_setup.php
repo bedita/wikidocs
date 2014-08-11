@@ -10,7 +10,7 @@ $moduleSetup = array(
 	// plugin module version
 	'version' => '0.5',
 	// minimum BEdita version required by this module
-	'BEditaMinVersion' => '3.4',
+	'BEditaMinVersion' => '3.5',
 	// maximum BEdita version supported by this module
 	//'BEditaMaxVersion' => '3.1',
 	// model names that are BEdita objects: i.e. extend BEAppObjectModel
