@@ -1,3 +1,5 @@
+{$html->script('libs/epiceditor/epiceditor.min.js', false)}
+
 {$view->element('modulesmenu')}
 
 {$view->element('menuleft', ['method' => 'index'])}
